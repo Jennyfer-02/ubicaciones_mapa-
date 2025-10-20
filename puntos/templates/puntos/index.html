@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ubicaciones</title>
+    <link rel="stylesheet" href="{% static 'puntos/stylesheet.css' %}">
+    
+</head>
+<body>
+    <h1>Ubicaciones Guardadas</h1>
+    <a href="{% url 'crear_ubicacion' %}">Agregar nueva ubicación</a>
+
+    <ul>
+        {% for u in ubicaciones %}
+            <li>
+                {{ u.nombre }} - ({{ u.latitud }}, {{ u.longitud }})
+                [<a href="{% url 'editar_ubicacion' u.id %}">Editar</a>]
+                [<a href="{% url 'eliminar_ubicacion' u.id %}">Eliminar</a>]
+            </li>
+        {% empty %}
+            <li>No hay ubicaciones registradas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

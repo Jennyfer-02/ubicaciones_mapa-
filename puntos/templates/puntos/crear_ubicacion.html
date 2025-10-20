@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Ubicación</title>
+</head>
+<body>
+    <h1>Agregar nueva ubicación</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nombre:</label><br>
+        <input type="text" name="nombre" required><br>
+        <label>Latitud:</label><br>
+        <input type="text" name="latitud" required><br>
+        <label>Longitud:</label><br>
+        <input type="text" name="longitud" required><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'index' %}">Volver</a>
+</body>
+</html>
